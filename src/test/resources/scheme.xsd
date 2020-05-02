@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="https://alekseybykov.github.io/scheme"
+	xmlns:jibx-demo="https://alekseybykov.github.io/scheme" elementFormDefault="qualified">
+
+	<element name="book">
+		<complexType>
+			<sequence>
+				<element ref="jibx-demo:author" maxOccurs="1" />
+				<element ref="jibx-demo:name" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="author">
+		<complexType>
+			<sequence>
+				<element ref="jibx-demo:first-name" maxOccurs="1" />
+				<element ref="jibx-demo:last-name" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="first-name" type="string" />
+	<element name="last-name" type="string" />
+	<element name="name" type="string" />
+</schema>

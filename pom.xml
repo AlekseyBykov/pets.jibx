@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>alekseybykov.portfolio</groupId>
+    <artifactId>jibx</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <java.version>1.7</java.version>
+        <jibx.version>1.1.6</jibx.version>
+        <maven-jibx-plugin.version>1.1.5</maven-jibx-plugin.version>
+        <maven-compiler.version>3.8.1</maven-compiler.version>
+        <junit.version>4.12</junit.version>
+        <surefire.version>2.22.1</surefire.version>
+        <project.sourceEncoding>UTF-8</project.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-run</artifactId>
+            <version>${jibx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>maven-jibx-plugin</artifactId>
+            <version>${maven-jibx-plugin.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.codehaus.woodstox</groupId>
+                    <artifactId>wstx-asl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.bcel</groupId>
+            <artifactId>bcel</artifactId>
+            <version>1.0</version>
+            <systemPath>${basedir}/lib/bcel.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jibx</groupId>
+                <artifactId>maven-jibx-plugin</artifactId>
+                <version>${maven-jibx-plugin.version}</version>
+                <configuration>
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <includes>*-binding.xml</includes>
+                    </includes>
+                    <excludes>
+                        <exclude>template-binding.xml</exclude>
+                    </excludes>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- is executed in the build phase "process-classes" -->
+                        <!-- JiBX edits the bytecode after compilation -->
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>bind</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

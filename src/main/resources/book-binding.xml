@@ -1,0 +1,9 @@
+<binding>
+	<mapping name="book" class="alekseybykov.portfolio.jibx.Book">
+		<structure name="author" field="author">
+			<value name="first-name" field="firstName" />
+			<value name="last-name" field="lastName" />
+		</structure>
+		<value name="name" field="name" />
+	</mapping>
+</binding>
