@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="https://alekseybykov.github.io/scheme"
-	xmlns:jibx-demo="https://alekseybykov.github.io/scheme" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="book">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="author" maxOccurs="1" />
+				<xsd:element ref="name" maxOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
 
-	<element name="book">
-		<complexType>
-			<sequence>
-				<element ref="jibx-demo:author" maxOccurs="1" />
-				<element ref="jibx-demo:name" maxOccurs="1" />
-			</sequence>
-		</complexType>
-	</element>
+	<xsd:element name="author">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="first-name" maxOccurs="1" />
+				<xsd:element ref="last-name" maxOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
 
-	<element name="author">
-		<complexType>
-			<sequence>
-				<element ref="jibx-demo:first-name" maxOccurs="1" />
-				<element ref="jibx-demo:last-name" maxOccurs="1" />
-			</sequence>
-		</complexType>
-	</element>
-
-	<element name="first-name" type="string" />
-	<element name="last-name" type="string" />
-	<element name="name" type="string" />
-</schema>
+	<xsd:element name="first-name" type="xsd:string" />
+	<xsd:element name="last-name" type="xsd:string" />
+	<xsd:element name="name" type="xsd:string" />
+</xsd:schema>
