@@ -1,5 +1,5 @@
 <binding>
-	<mapping name="book" class="alekseybykov.portfolio.jibx.Book">
+	<mapping name="book" class="alekseybykov.portfolio.jibx.ex01.Book">
 		<structure name="author" field="author">
 			<value name="first-name" field="firstName" />
 			<value name="last-name" field="lastName" />

@@ -1,5 +1,7 @@
 package alekseybykov.portfolio.jibx;
 
+import alekseybykov.portfolio.jibx.ex01.Book;
+import alekseybykov.portfolio.jibx.ex02.Publisher;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
@@ -10,14 +12,22 @@ import java.io.InputStream;
 
 public class JiBXTestBase {
 
-	private static ClassLoader classLoader;
 	protected static IUnmarshallingContext unmarshallingContext;
+	private static ClassLoader classLoader;
 
 	@BeforeClass
-	public static void setUp() throws JiBXException {
-		IBindingFactory bindingFactory = BindingDirectory.getFactory(Book.class);
-		unmarshallingContext = bindingFactory.createUnmarshallingContext();
+	public static void setUp() {
 		classLoader = JiBXTestBase.class.getClassLoader();
+	}
+
+	protected static void buildUnmarshallingContext(Class<?> clazz) throws JiBXException {
+		IBindingFactory bindingFactory = null;
+		if (clazz == Book.class) {
+			bindingFactory = BindingDirectory.getFactory(Book.class);
+		} else if (clazz == Publisher.class) {
+			bindingFactory = BindingDirectory.getFactory(Publisher.class);
+		}
+		unmarshallingContext = bindingFactory.createUnmarshallingContext();
 	}
 
 	protected InputStream loadXml(String xml) {

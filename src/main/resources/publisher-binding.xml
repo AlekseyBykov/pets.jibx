@@ -1,0 +1,14 @@
+<binding>
+	<mapping name="publisher" class="alekseybykov.portfolio.jibx.ex02.Publisher">
+		<structure name="owner" field="owner" value-style="attribute">
+			<value name="owner-id" get-method="getId" set-method="setId"/>
+			<value name="first-name" field="firstName"/>
+			<value style="text" field="lastName"/>
+		</structure>
+		<value name="city" field="city"/>
+		<value name="state" field="state"/>
+		<value name="street" field="street"/>
+		<value name="zip" field="zip" usage="optional" type="java.lang.Integer"/>
+		<value name="phone" field="phone" set-method="setPhone"/>
+	</mapping>
+</binding>
