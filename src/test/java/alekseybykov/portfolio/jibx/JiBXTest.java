@@ -10,6 +10,10 @@ import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * @author Aleksey Bykov
+ * @since 02.05.2020
+ */
 public class JiBXTest extends JiBXTestBase {
 
 	@Test

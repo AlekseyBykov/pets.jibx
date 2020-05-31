@@ -1,5 +1,9 @@
 package alekseybykov.portfolio.jibx.ex02;
 
+/**
+ * @author Aleksey Bykov
+ * @since 05.05.2020
+ */
 public class Owner {
 	private int id;
 	private String firstName;

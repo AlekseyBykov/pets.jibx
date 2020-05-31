@@ -10,6 +10,10 @@ import org.junit.BeforeClass;
 
 import java.io.InputStream;
 
+/**
+ * @author Aleksey Bykov
+ * @since 02.05.2020
+ */
 public class JiBXTestBase {
 
 	protected static IUnmarshallingContext unmarshallingContext;
