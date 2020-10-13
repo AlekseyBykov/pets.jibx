@@ -13,7 +13,7 @@
         <jibx.version>1.1.6</jibx.version>
         <maven-jibx-plugin.version>1.1.5</maven-jibx-plugin.version>
         <maven-compiler.version>3.8.1</maven-compiler.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <project.sourceEncoding>UTF-8</project.sourceEncoding>
     </properties>
 
